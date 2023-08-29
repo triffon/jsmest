@@ -47,13 +47,14 @@ Sample JSON input:
 			"wrong": ["...", "..."]
 		}
 	],
-	{
-		"type": "short-open",
-		"category": "if",
-		"year": 2020,
-		"title": "What's the output of the following code: <code>int a = 5; cout &lt;&lt; a * 10 + 43;</code>",
-		"correct": "543"
-	},
+	((a) => eval(
+		{
+			"type": "short-open",
+			"category": "if",
+			"year": 2020,
+			"title": `What's the output of the following code: <code>int a =${a}; cout &lt;&lt; a * 10 + 43;</code>`,
+			"correct": `${a}43`
+		}))(Math.floor(Math.random() * 9 + 1)),
 	{
 		"type": "long-open",
 		"category": "functions",
